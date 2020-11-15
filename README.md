@@ -7,7 +7,48 @@ Anggota:<br />
 - ![fikri](https://img.shields.io/badge/Fikri%20Haykal-05311840000006-blueviolet)<br />
 - ![syarif](https://img.shields.io/badge/Fancista%20Syarif%20H.-05311840000027-blueviolet)<br />
 
-## Soal
+## DNS
+### Soal 1
+  Membuat alamat `http://semerut07.pw`.
+  - DNS Server <b>MALANG</b>
+  - Mengarah IP <b>PROBOLINGGO</b>
+  #### Penyelesaian
+  Menambahkan sebuah zona pada file `/etc/bind/named.conf.local` pada server <b>MALANG</b>.<br />
+  Membuat sebuah file `/etc/bind/semeru/semerut7.pw`. Lalu dikonfigurasi seperti berikut:<br />
+### Soal 2
+  Membuat domain alias `http://www.semerut7.pw` pada domain `http://semerut07.pw`.
+  #### Penyelesaian
+  Mengkonfigurasi file `/etc/bind/semeru/semerut7.pw` dengan menambahkan record <b>CNAME</b> seperti berikut:<br />
+### Soal 3
+  Membuat subdomain `http://penanjakan.semerut7.pw`.
+  #### Penyelesaian
+  Mengkonfigurasi file `/etc/bind/semeru/semerut7.pw` dengan menambahkan record <b>A</b> seperti berikut:<br />
+### Soal 4
+  Membuat reverse domain `http://semerut7.pw`.
+  - DNS Server <b>MALANG</b>
+  - Mengarah IP <b>PROBOLINGGO</b>
+  #### Penyelesaian
+  Menambahkan sebuah zona pada file `/etc/bind/named.conf.local` pada server <b>MALANG</b>.<br />
+  Membuat sebuah file `/etc/bind/semeru/83.151.10.in-addr.arpa`. Lalu dikonfigurasi seperti berikut:<br />
+### Soal 5
+  Membuat DNS Slave pada <b>MOJOKERTO</b>.
+  #### Penyelesaian
+  Mengkonfigurasi zona `semerut7.pw` `/etc/bind/named.conf.local` pada server <b>MALANG</b> seperti berikut ini:<br />
+  Menambahkan sebuah zona pada file `/etc/bind/named.conf.local` pada server <b>MOJOKERTO</b> seperti berikut.<br />
+### Soal 6
+### Soal 7
+### Soal 8
+
+## Web Server
+### Soal 9
+### Soal 10
+### Soal 11
+### Soal 12
+### Soal 13
+### Soal 14
+### Soal 15
+### Soal 16
+### Soal 17
 <ol>
   <li>Membuat alamat http://semerut07.pw </li>
   <li>Membuat alias http://www.semerut07.pw </li>
