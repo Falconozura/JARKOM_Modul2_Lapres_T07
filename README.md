@@ -7,7 +7,7 @@ Anggota:<br />
 - ![fikri](https://img.shields.io/badge/Fikri%20Haykal-05311840000006-blueviolet)<br />
 - ![syarif](https://img.shields.io/badge/Fancista%20Syarif%20H.-05311840000027-blueviolet)<br />
 
-## DNS
+## DNS (Domain Name System)
 ### Soal 1
   Membuat alamat `http://semerut07.pw`.
   - DNS Server <b>MALANG</b>
@@ -36,10 +36,24 @@ Anggota:<br />
   Mengkonfigurasi zona `semerut7.pw` `/etc/bind/named.conf.local` pada server <b>MALANG</b> seperti berikut ini:<br />
   Menambahkan sebuah zona pada file `/etc/bind/named.conf.local` pada server <b>MOJOKERTO</b> seperti berikut.<br />
 ### Soal 6
+  Membuat subdomain `http://penanjakan.semerut7.pw`.
+  - Didelegasikan pada server <b>MOJOKERTO</b>
+  - Mengarah IP <b>PROBOLINGGO</b>
+  #### Penyelesaian
+  Mengkonfigurasi file `/etc/bind/semeru/semerut7.pw` dengan menambahkan record <b>A</b> dan <b>NS</b> seperti berikut:<br />
+  Mengkonfigurasi zona `semerut7.pw` `/etc/bind/named.conf.local` pada server <b>MALANG</b> seperti berikut ini:<br />
+  Menonaktifkan `dnssec-validation auto;` serta menambahkan baris `allow-query{any;};` pada file `/etc/bind/named.conf.options` pada server <b>MALANG</b> dan <b>MOJOKERTO</b>
+  Menambahkan sebuah zona pada file `/etc/bind/named.conf.local` pada server <b>MOJOKERTO</b>.<br />
+  Mengkonfigurasi file `/etc/bind/delegasi/gunung.semerut7.pw` seperti berikut:<br />
 ### Soal 7
-### Soal 8
+  Membuat subdomain `http://naik.gunung.semerut7.pw`.
+  - Didelegasikan pada server <b>MOJOKERTO</b>
+  - Mengarah IP <b>PROBOLINGGO</b>
+  #### Penyelesaian
+  Mengkonfigurasi file `/etc/bind/delegasi/gunung.semerut7.pw` dengan menambahkan record <b>A</b> seperti berikut:<br />
 
 ## Web Server
+### Soal 8
 ### Soal 9
 ### Soal 10
 ### Soal 11
