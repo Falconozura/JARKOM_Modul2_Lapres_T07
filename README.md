@@ -405,10 +405,35 @@ naik        IN      A       10.151.83.140   ; IP MOJOKERTO
   ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/12.png?raw=true)<br /><br />
   ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/24.png?raw=true)<br /><br />
 ### Soal 14
+  Membuat subdomain `http://naik.gunung.semerut7.pw` pada port <b>8888</b><br />naik.gunung.
+  #### Penyelesaian
+  Membuat file `/etc/apache2/sites-available/naik.gunung.semerut7.pw`.<br />
+  ```
+  <VirtualHost *:8888>
+  
+  ServerName naik.gunung.semerut7.pw:8888
+  DocumentRoot /var/www/naik.gunung.semerut7.pw
+  ...
+  <Directory /var/www/naik.gunung.semerut7.pw>
+  ```
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/13.png?raw=true)<br /><br />
+  Menambahkan <b>Listen 8888</b> pada `/etc/apache2/ports.conf`.<br />
+  ```
+  Listen 8888
+  ```
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/14.png?raw=true)<br /><br />
+  Mendownload file pendukung untuk dijadikan direktori di `/var/www/semerut7.pw/`.
+  ```
+  wget 10.151.36.202/naik.gunung.semeru.pw.zip
+  ...
+  unzip naik.gunung.semeru.pw.zip
+  ...
+  mv naik.gunung.semeru.pw naik.gunung.semerut7.pw
+  ```
 ### Soal 15
   Membuat AuthBasic pada `http://naik.gunung.semerut7.pw` dengan user <b>semeru</b> dan password <b>kuynaikgunung</b><br />
   #### Penyelesaian
-  Membuat <b>htpasswd</b> sesuai username dan password yang diminta.<br/>
+  Membuat <b>htpasswd</b> sesuai username dan password yang diminta.<br />
   ```
   htpasswd -c /etc/apache2/.htpasswd semeru
   ```
