@@ -14,22 +14,87 @@ Anggota:<br />
   - Mengarah IP <b>PROBOLINGGO</b>
   #### Penyelesaian
   Menambahkan sebuah zona pada file `/etc/bind/named.conf.local` pada server <b>MALANG</b>.<br />
+  ```
+  zone "semerut7.pw" {
+    type master;
+    file "/etc/bind/semeru/semerut7.pw";
+  };
+  ```
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/1.png?raw=true)<br />
   Membuat sebuah file `/etc/bind/semeru/semerut7.pw`. Lalu dikonfigurasi seperti berikut:<br />
+  ```
+        @           IN      SOA     semerut7.pw. root.semerut7.pw. (
+                                        2020111001  ; Serial
+                                        604800      ; Refresh
+                                        86400       ; Retry
+                                        2419200     ; Expire
+                                        604800 )    ; Negative Cache TTL
+        ;
+        @           IN      NS      semerut7.pw.
+        @           IN      A       10.151.83.140
+  ```
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/2.png?raw=true)<br />
 ### Soal 2
   Membuat domain alias `http://www.semerut7.pw` pada domain `http://semerut07.pw`.
   #### Penyelesaian
   Mengkonfigurasi file `/etc/bind/semeru/semerut7.pw` dengan menambahkan record <b>CNAME</b> seperti berikut:<br />
+  ```
+          @           IN      SOA     semerut7.pw. root.semerut7.pw. (
+                                        2020111001  ; Serial
+                                        604800      ; Refresh
+                                        86400       ; Retry
+                                        2419200     ; Expire
+                                        604800 )    ; Negative Cache TTL
+        ;
+        @           IN      NS      semerut7.pw.
+        @           IN      A       10.151.83.140
+        www         IN      CNAME   semerut7.pw.
+  ```
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/2.png?raw=true)<br />
 ### Soal 3
   Membuat subdomain `http://penanjakan.semerut7.pw`.
   #### Penyelesaian
   Mengkonfigurasi file `/etc/bind/semeru/semerut7.pw` dengan menambahkan record <b>A</b> seperti berikut:<br />
+  ```
+          @           IN      SOA     semerut7.pw. root.semerut7.pw. (
+                                        2020111001  ; Serial
+                                        604800      ; Refresh
+                                        86400       ; Retry
+                                        2419200     ; Expire
+                                        604800 )    ; Negative Cache TTL
+        ;
+        @           IN      NS      semerut7.pw.
+        @           IN      A       10.151.83.140
+        www         IN      CNAME   semerut7.pw.
+        penanjakan  IN      A       10.151.93.140
+  ```
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/2.png?raw=true)<br />
 ### Soal 4
   Membuat reverse domain `http://semerut7.pw`.
   - DNS Server <b>MALANG</b>
   - Mengarah IP <b>PROBOLINGGO</b>
   #### Penyelesaian
   Menambahkan sebuah zona pada file `/etc/bind/named.conf.local` pada server <b>MALANG</b>.<br />
+  ```
+  zone "83.151.10.in-addr.arpa" {
+    type master;
+    file "/etc/bind/semeru/83.151.10.in-addr.arpa";
+  };
+  ```
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/1.png?raw=true)<br />
   Membuat sebuah file `/etc/bind/semeru/83.151.10.in-addr.arpa`. Lalu dikonfigurasi seperti berikut:<br />
+  ```
+  @       IN      SOA     semerut7.pw. root.semerut7.pw. (
+                            2020111001  ; Serial
+                            604800      ; Refresh
+                            86400       ; Retry
+                            2419200     ; Expire
+                            604800 )    ; Negative Cache TTL
+;
+83.151.10.in-addr.arpa.       IN      NS      semerut7.pw.
+140                           IN      PTR     semerut7.pw.
+  ```
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/3.png?raw=true)<br />
 ### Soal 5
   Membuat DNS Slave pada <b>MOJOKERTO</b>.
   #### Penyelesaian
