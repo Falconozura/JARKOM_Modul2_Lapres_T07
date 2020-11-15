@@ -20,7 +20,7 @@ Anggota:<br />
     file "/etc/bind/semeru/semerut7.pw";
   };
   ```
-  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/1.png?raw=true)<br />
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/1.png?raw=true)<br /><br />
   Membuat sebuah file `/etc/bind/semeru/semerut7.pw`. Lalu dikonfigurasi seperti berikut:<br />
   ```
 @           IN      SOA     semerut7.pw. root.semerut7.pw. (
@@ -33,7 +33,7 @@ Anggota:<br />
 @           IN      NS      semerut7.pw.
 @           IN      A       10.151.83.140
   ```
-  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/2.png?raw=true)<br />
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/2.png?raw=true)<br /><br />
 ### Soal 2
   Membuat domain alias `http://www.semerut7.pw` pada domain `http://semerut07.pw`.
   #### Penyelesaian
@@ -50,7 +50,7 @@ Anggota:<br />
 @           IN      A       10.151.83.140
 www         IN      CNAME   semerut7.pw.
   ```
-  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/2.png?raw=true)<br />
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/2.png?raw=true)<br /><br />
 ### Soal 3
   Membuat subdomain `http://penanjakan.semerut7.pw`.
   #### Penyelesaian
@@ -68,7 +68,7 @@ www         IN      CNAME   semerut7.pw.
 www         IN      CNAME   semerut7.pw.
 penanjakan  IN      A       10.151.93.140
   ```
-  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/2.png?raw=true)<br />
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/2.png?raw=true)<br /><br />
 ### Soal 4
   Membuat reverse domain `http://semerut7.pw`.
   - DNS Server <b>MALANG</b>
@@ -81,7 +81,7 @@ zone "83.151.10.in-addr.arpa" {
     file "/etc/bind/semeru/83.151.10.in-addr.arpa";
 };
   ```
-  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/1.png?raw=true)<br />
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/1.png?raw=true)<br /><br />
   Membuat sebuah file `/etc/bind/semeru/83.151.10.in-addr.arpa`. Lalu dikonfigurasi seperti berikut:<br />
   ```
 @       IN      SOA     semerut7.pw. root.semerut7.pw. (
@@ -94,7 +94,7 @@ zone "83.151.10.in-addr.arpa" {
 83.151.10.in-addr.arpa.       IN      NS      semerut7.pw.
 140                           IN      PTR     semerut7.pw.
   ```
-  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/3.png?raw=true)<br />
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/3.png?raw=true)<br /><br />
 ### Soal 5
   Membuat DNS Slave pada <b>MOJOKERTO</b>.
   #### Penyelesaian
@@ -107,7 +107,7 @@ zone "83.151.10.in-addr.arpa" {
       file "/etc/bind/semeru/semerut7.pw";
   };
   ```
-  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/1.png?raw=true)<br />
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/1.png?raw=true)<br /><br />
   Menambahkan sebuah zona pada file `/etc/bind/named.conf.local` pada server <b>MOJOKERTO</b> seperti berikut.<br />
   ```
   zone "semerut7.pw" {
@@ -116,7 +116,7 @@ zone "83.151.10.in-addr.arpa" {
       file "/var/lib/bind/semerut7.pw";
   }
   ```
-  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/4.png?raw=true)<br />
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/4.png?raw=true)<br /><br />
 ### Soal 6
   Membuat subdomain `http://penanjakan.semerut7.pw`.
   - Didelegasikan pada server <b>MOJOKERTO</b>
@@ -138,7 +138,7 @@ penanjakan  IN      A       10.151.83.140
 ns1         IN      A       10.151.83.139
 gunung      IN      NS      ns1
   ```
-  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/2.png?raw=true)<br />
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/2.png?raw=true)<br /><br />
   Mengkonfigurasi zona `semerut7.pw` `/etc/bind/named.conf.local` pada server <b>MALANG</b> seperti berikut ini:<br />
   ```
 zone "semerut7.pw" {
@@ -148,7 +148,7 @@ zone "semerut7.pw" {
     file "/etc/bind/semeru/semerut7.pw";
 };
   ```
-  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/1.png?raw=true)<br />
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/1.png?raw=true)<br /><br />
   Menonaktifkan `dnssec-validation auto;` serta menambahkan baris `allow-query{any;};` pada file `/etc/bind/named.conf.options` pada server <b>MALANG</b> dan <b>MOJOKERTO</b>
   ```
   //dnssec-validation auto;
@@ -157,7 +157,7 @@ zone "semerut7.pw" {
   auth-nxdomain no;   #conform to RFC1035
   listen-on-v6 { any; };
   ```
-  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/5.png?raw=true)<br />
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/5.png?raw=true)<br /><br />
   Menambahkan sebuah zona pada file `/etc/bind/named.conf.local` pada server <b>MOJOKERTO</b>.<br />
   ```
 zone "gunung.semerut7.pw"{
@@ -166,7 +166,7 @@ zone "gunung.semerut7.pw"{
     allow-transfer { any; };
 }
   ```
-  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/4.png?raw=true)<br />
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/4.png?raw=true)<br /><br />
   Mengkonfigurasi file `/etc/bind/delegasi/gunung.semerut7.pw` seperti berikut:<br />
   ```
 @           IN      SOA     gunung.semerut7.pw. root.gunung.semerut7.pw. (
@@ -179,7 +179,7 @@ zone "gunung.semerut7.pw"{
 @           IN      NS      gunung.semerut7.pw.
 @           IN      A       10.151.83.140   ; IP MOJOKERTO
   ```
-  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/6.png?raw=true)<br />
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/6.png?raw=true)<br /><br />
 ### Soal 7
   Membuat subdomain `http://naik.gunung.semerut7.pw`.
   - Didelegasikan pada server <b>MOJOKERTO</b>
@@ -198,7 +198,7 @@ zone "gunung.semerut7.pw"{
 @           IN      A       10.151.83.140   ; IP MOJOKERTO
 naik        IN      A       10.151.83.140   ; IP MOJOKERTO
   ```
-  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/6.png?raw=true)<br />
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/6.png?raw=true)<br /><br />
 
 ## Web Server
 ### Soal 8
