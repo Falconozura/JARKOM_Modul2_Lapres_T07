@@ -7,6 +7,124 @@ Anggota:<br />
 - ![fikri](https://img.shields.io/badge/Fikri%20Haykal-05311840000006-blueviolet)<br />
 - ![syarif](https://img.shields.io/badge/Fancista%20Syarif%20H.-05311840000027-blueviolet)<br />
 
+## IP Address
+```
+NID TUNTAP
+10.151.74.68
+
+NID DMZ
+10.151.83.136
+
+IP_eth0_SURABAYA    = 10.151.74.70
+IP_tuntap           = 10.151.74.69
+IP_eth1_SURABAYA    = 10.151.83.137
+IP_MALANG           = 10.151.83.138
+IP_MOJOKERTO        = 10.151.83.139
+IP_PROBOLINGGO      = 10.151.83.140
+```
+
+## Topologi
+```
+# Switch
+uml_switch -unix switch1 > /dev/null < /dev/null &
+uml_switch -unix switch2 > /dev/null < /dev/null &
+
+# Router
+xterm -T SURABAYA -e linux ubd0=SURABAYA,jarkom umid=SURABAYA eth0=tuntap,,,10.151.74.69 eth1=daemon,,,switch2 eth2=daemon,,,switch1 mem=96M &
+
+# Server
+xterm -T MALANG -e linux ubd0=MALANG,jarkom umid=MALANG eth0=daemon,,,switch2 mem=128M &
+xterm -T MOJOKERTO -e linux ubd0=MOJOKERTO,jarkom umid=MOJOKERTO eth0=daemon,,,switch2 mem=128M &
+xterm -T PROBOLINGGO -e linux ubd0=PROBOLINGGO,jarkom umid=PROBOLINGGO eth0=daemon,,,switch2 mem=128M &
+
+# Klien
+xterm -T SIDOARJO -e linux ubd0=SIDOARJO,jarkom umid=SIDOARJO eth0=daemon,,,switch1 mem=96M &
+xterm -T GRESIK -e linux ubd0=GRESIK,jarkom umid=GRESIK eth0=daemon,,,switch1 mem=96M &
+```
+
+## UML Configuration
+### Surabaya
+```
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+address 10.151.74.70
+netmask 255.255.255.252
+gateway 10.151.74.69
+
+auto eth1
+iface eth1 inet static
+address 10.151.83.137
+netmask 255.255.255.248
+
+auto eth2
+iface eth2 inet static
+address 192.168.0.1
+netmask 255.255.255.0
+```
+
+### Malang
+```
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+address 10.151.83.138
+netmask 255.255.255.248
+gateway 10.151.83.137
+```
+
+### Mojokerto
+```
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+address 10.151.83.139
+netmask 255.255.255.248
+gateway 10.151.83.137
+```
+
+### Probolinggo
+```
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+address 10.151.83.140
+netmask 255.255.255.248
+gateway 10.151.83.137
+```
+
+### Sidoarjo
+```
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+address 192.168.0.2
+netmask 255.255.255.0
+gateway 192.168.0.1
+```
+
+### Gresik
+```
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+address 192.168.0.3
+netmask 255.255.255.0
+gateway 192.168.0.1
+```
+
 ## DNS (Domain Name System)
 ### Soal 1
   Membuat alamat `http://semerut07.pw`.
@@ -305,7 +423,6 @@ naik        IN      A       10.151.83.140   ; IP MOJOKERTO
   Require valid-user
   ```
   ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/16.png?raw=true)<br /><br />
-  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/26.png?raw=true)<br /><br />
 ### Soal 16
   Mengarahkan alamat IP ke domain utama `http://semerut7.pw`
   #### Penyelesaian
