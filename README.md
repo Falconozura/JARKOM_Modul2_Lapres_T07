@@ -205,25 +205,67 @@ naik        IN      A       10.151.83.140   ; IP MOJOKERTO
   Mengatur web server `http://semerut7.pw` pada <b>PROBOLINGGO</b>
   #### Penyelesaian
   Membuat file di `/etc/apache2/sites-available/semerut7.pw` lalu disetting seperti berikut :<br />
+  ```
+  ServerName semerut7.pw
+  DocumentRoot /var/www/semerut7.pw
+  ...
+  <Directory /var/www/semerut7.pw>
+  ```
   Mendownload file pendukung untuk dijadikan direktori di `/var/www/semerut7.pw/`.
+  ```
+  wget 10.151.36.202/semeru.pw.zip
+  ...
+  unzip semeru.pw.zip
+  ...
+  mv semeru.pw semerut7.pw
+  ```
 ### Soal 9
   Menggunakan modul rewrite agar `http://semerut7.pw/home` bisa menampilkan isi dari `http://semerut7.pw/index.php/home`
   #### Penyelesaian
   Mengaktifkan <b>Override</b> di file `/etc/apache2/sites-available/semerut7.pw` seperti berikut :<br />
+  ```
+  AllowOverride All
+  ```
   Membuat file `.htaccess` di `/var/www/semerut7.pw/` dan dibuat seperti berikut:<br />
+  ```
+  RewriteEngine on
+  RewriteRule ^home$ index.php/home
+  ```
 ### Soal 10
   Mengatur web server untuk subdomain `http://semerut7.pw` pada <b>PROBOLINGGO</b>
   #### Penyelesaian
   Membuat file di `/etc/apache2/sites-available/penanjakan.semerut7.pw` lalu disetting seperti berikut :<br />
+  ```
+  ServerName penanjakan.semerut7.pw
+  DocumentRoot /var/www/penanjakan.semerut7.pw
+  ...
+  <Directory /var/www/penanjakan.semerut7.pw>
+  ```
   Mendownload file pendukung untuk dijadikan direktori di `/var/www/penanjakan.semerut7.pw/`.
+  ```
+  wget 10.151.36.202/penanjakan.semeru.pw.zip
+  ...
+  unzip penanjakan.semeru.pw.zip
+  ...
+  mv semeru penanjakan.semerut7.pw
+  ```
 ### Soal 11
   Mengatur <b>directory listing</b> pada `http://penanjakan.semerut7.pw`
   #### Penyelesaian
   Mengatur file di `/etc/apache2/sites-available/penanjakan.semerut7.pw` seperti berikut :<br />
+  ```
+  <Directory ...>
+      Options -Indexes
+  </Directory>
+  ```
+  NB : untuk direktori yang akan dinonaktfikan.<br />
 ### Soal 12
   Mengatur halaman 404 pada `http://penanjakan.semerut7.pw`
   #### Penyelesaian
   Mengatur file di `/etc/apache2/sites-available/penanjakan.semerut7.pw` seperti berikut :<br />
+  ```
+  ErrorDocument 404 /errors/404.html
+  ```
   NB : Karena file 404.html sudah disediakan, kita hanya perlu mengarahkan.<br />
 ### Soal 13
   Mengatur <b>directory alias</b> `http://penanjakan.semerut7.pw/public/javascripts` menjadi `http://penanjakan.semerut7.pw/js`
