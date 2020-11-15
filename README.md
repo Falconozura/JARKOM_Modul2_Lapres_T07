@@ -211,6 +211,7 @@ naik        IN      A       10.151.83.140   ; IP MOJOKERTO
   ...
   <Directory /var/www/semerut7.pw>
   ```
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/7.png?raw=true)<br /><br />
   Mendownload file pendukung untuk dijadikan direktori di `/var/www/semerut7.pw/`.
   ```
   wget 10.151.36.202/semeru.pw.zip
@@ -219,6 +220,7 @@ naik        IN      A       10.151.83.140   ; IP MOJOKERTO
   ...
   mv semeru.pw semerut7.pw
   ```
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/19.png?raw=true)<br /><br />
 ### Soal 9
   Menggunakan modul rewrite agar `http://semerut7.pw/home` bisa menampilkan isi dari `http://semerut7.pw/index.php/home`
   #### Penyelesaian
@@ -226,11 +228,13 @@ naik        IN      A       10.151.83.140   ; IP MOJOKERTO
   ```
   AllowOverride All
   ```
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/7.png?raw=true)<br /><br />
   Membuat file `.htaccess` di `/var/www/semerut7.pw/` dan dibuat seperti berikut:<br />
   ```
   RewriteEngine on
   RewriteRule ^home$ index.php/home
   ```
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/20.png?raw=true)<br /><br />
 ### Soal 10
   Mengatur web server untuk subdomain `http://semerut7.pw` pada <b>PROBOLINGGO</b>
   #### Penyelesaian
@@ -241,6 +245,7 @@ naik        IN      A       10.151.83.140   ; IP MOJOKERTO
   ...
   <Directory /var/www/penanjakan.semerut7.pw>
   ```
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/9.png?raw=true)<br /><br />
   Mendownload file pendukung untuk dijadikan direktori di `/var/www/penanjakan.semerut7.pw/`.
   ```
   wget 10.151.36.202/penanjakan.semeru.pw.zip
@@ -249,6 +254,7 @@ naik        IN      A       10.151.83.140   ; IP MOJOKERTO
   ...
   mv semeru penanjakan.semerut7.pw
   ```
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/21.png?raw=true)<br /><br />
 ### Soal 11
   Mengatur <b>directory listing</b> pada `http://penanjakan.semerut7.pw`
   #### Penyelesaian
@@ -259,6 +265,8 @@ naik        IN      A       10.151.83.140   ; IP MOJOKERTO
   </Directory>
   ```
   NB : untuk direktori yang akan dinonaktfikan.<br />
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/10.png?raw=true)<br /><br />
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/22.png?raw=true)<br /><br />
 ### Soal 12
   Mengatur halaman 404 pada `http://penanjakan.semerut7.pw`
   #### Penyelesaian
@@ -267,6 +275,8 @@ naik        IN      A       10.151.83.140   ; IP MOJOKERTO
   ErrorDocument 404 /errors/404.html
   ```
   NB : Karena file 404.html sudah disediakan, kita hanya perlu mengarahkan.<br />
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/11.png?raw=true)<br /><br />
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/23.png?raw=true)<br /><br />
 ### Soal 13
   Mengatur <b>directory alias</b> `http://penanjakan.semerut7.pw/public/javascripts` menjadi `http://penanjakan.semerut7.pw/js`
   #### Penyelesaian
@@ -274,6 +284,8 @@ naik        IN      A       10.151.83.140   ; IP MOJOKERTO
   ```
   Alias "/js" "/var/www/penanjakan.semerut7.pw/public/javascripts"
   ```
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/12.png?raw=true)<br /><br />
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/24.png?raw=true)<br /><br />
 ### Soal 14
 ### Soal 15
   Membuat AuthBasic pada `http://naik.gunung.semerut7.pw` dengan user <b>semeru</b> dan password <b>kuynaikgunung</b><br />
@@ -282,6 +294,7 @@ naik        IN      A       10.151.83.140   ; IP MOJOKERTO
   ```
   htpasswd -c /etc/apache2/.htpasswd semeru
   ```
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/15.png?raw=true)<br /><br />
   Mengatur <b>Override</b> dan <b>Auth</b> pada file `/etc/apache2/sites-available/naik.gunung.semerut7.pw`.<br />
   ```
   AllowOverride All
@@ -291,6 +304,8 @@ naik        IN      A       10.151.83.140   ; IP MOJOKERTO
   AuthUserFile /etc/apache2/.htpasswd
   Require valid-user
   ```
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/16.png?raw=true)<br /><br />
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/26.png?raw=true)<br /><br />
 ### Soal 16
   Mengarahkan alamat IP ke domain utama `http://semerut7.pw`
   #### Penyelesaian
@@ -298,6 +313,7 @@ naik        IN      A       10.151.83.140   ; IP MOJOKERTO
   ```
   Redirect 301 / http://semerut7.pw
   ```
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/17.png?raw=true)<br /><br />
   Mengatur <b>Override</b> pada file `/etc/apache2/sites-available/naik.gunung.semerut7.pw`.<br />
   ```
   AllowOverride All
@@ -309,8 +325,10 @@ naik        IN      A       10.151.83.140   ; IP MOJOKERTO
   ```
   AllowOverride All
   ```
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/18.png?raw=true)<br /><br />
   Membuat file <b>.htaccess</b> pada direktori `/var/www/penanjakan.semerut7.pw`.<br />
   ```
   RewriteEngine on
   RewriteRule ^(.*)semeru(.*)$ public/images/semeru.jpg
   ```
+  ![img](https://github.com/Falconozura/JARKOM_Modul2_Lapres_T07/blob/main/screenshots/27.png?raw=true)<br /><br />
