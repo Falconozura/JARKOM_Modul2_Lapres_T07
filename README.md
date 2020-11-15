@@ -202,54 +202,73 @@ naik        IN      A       10.151.83.140   ; IP MOJOKERTO
 
 ## Web Server
 ### Soal 8
+  Mengatur web server `http://semerut7.pw` pada <b>PROBOLINGGO</b>
+  #### Penyelesaian
+  Membuat file di `/etc/apache2/sites-available/semerut7.pw` lalu disetting seperti berikut :<br />
+  Mendownload file pendukung untuk dijadikan direktori di `/var/www/semerut7.pw/`.
 ### Soal 9
+  Menggunakan modul rewrite agar `http://semerut7.pw/home` bisa menampilkan isi dari `http://semerut7.pw/index.php/home`
+  #### Penyelesaian
+  Mengaktifkan <b>Override</b> di file `/etc/apache2/sites-available/semerut7.pw` seperti berikut :<br />
+  Membuat file `.htaccess` di `/var/www/semerut7.pw/` dan dibuat seperti berikut:<br />
 ### Soal 10
+  Mengatur web server untuk subdomain `http://semerut7.pw` pada <b>PROBOLINGGO</b>
+  #### Penyelesaian
+  Membuat file di `/etc/apache2/sites-available/penanjakan.semerut7.pw` lalu disetting seperti berikut :<br />
+  Mendownload file pendukung untuk dijadikan direktori di `/var/www/penanjakan.semerut7.pw/`.
 ### Soal 11
+  Mengatur <b>directory listing</b> pada `http://penanjakan.semerut7.pw`
+  #### Penyelesaian
+  Mengatur file di `/etc/apache2/sites-available/penanjakan.semerut7.pw` seperti berikut :<br />
 ### Soal 12
+  Mengatur halaman 404 pada `http://penanjakan.semerut7.pw`
+  #### Penyelesaian
+  Mengatur file di `/etc/apache2/sites-available/penanjakan.semerut7.pw` seperti berikut :<br />
+  NB : Karena file 404.html sudah disediakan, kita hanya perlu mengarahkan.<br />
 ### Soal 13
+  Mengatur <b>directory alias</b> `http://penanjakan.semerut7.pw/public/javascripts` menjadi `http://penanjakan.semerut7.pw/js`
+  #### Penyelesaian
+  Mengatur file di `/etc/apache2/sites-available/penanjakan.semerut7.pw` seperti berikut :<br />
+  ```
+  Alias "/js" "/var/www/penanjakan.semerut7.pw/public/javascripts"
+  ```
 ### Soal 14
 ### Soal 15
+  Membuat AuthBasic pada `http://naik.gunung.semerut7.pw` dengan user <b>semeru</b> dan password <b>kuynaikgunung</b><br />
+  #### Penyelesaian
+  Membuat <b>htpasswd</b> sesuai username dan password yang diminta.<br/>
+  ```
+  htpasswd -c /etc/apache2/.htpasswd semeru
+  ```
+  Mengatur <b>Override</b> dan <b>Auth</b> pada file `/etc/apache2/sites-available/naik.gunung.semerut7.pw`.<br />
+  ```
+  AllowOverride All
+  ...
+  AuthType Basic
+  AuthName "Login dulu cuy!"
+  AuthUserFile /etc/apache2/.htpasswd
+  Require valid-user
+  ```
 ### Soal 16
+  Mengarahkan alamat IP ke domain utama `http://semerut7.pw`
+  #### Penyelesaian
+  Menambahkan <b>Apache Redirect</b> pada file `/etc/apache2/sites-available/default`.<br />
+  ```
+  Redirect 301 / http://semerut7.pw
+  ```
+  Mengatur <b>Override</b> pada file `/etc/apache2/sites-available/naik.gunung.semerut7.pw`.<br />
+  ```
+  AllowOverride All
+  ```
 ### Soal 17
-<ol>
-  <li>Membuat alamat http://semerut07.pw </li>
-  <li>Membuat alias http://www.semerut07.pw </li>
-  <li>Membuat subdomain http://penanjakan.semerut07.pw </li>
-  <li>Membuat reverse domain utama</li>
-  <li>Membuat DNS slave</li>
-  <li>Membuat domain http://gunung.semerut07.pw </li>
-  <li>Menambahkan subdomain http://naik.gunung.semerut07.pw </li>
-  <li>Mengatur web server</li>
-  <li>Mengaktifkan mod rewrite</li>
-  <li>Membuat web http://penanjakan.semerut07.pw </li>
-  <li>Pada folder /public dibolehkan directory listing namun untuk folder yang berada di dalamnya tidak dibolehkan</li>
-  <li>Membuat error page 404</li>
-  <li>Membuat mod alias dari /javascript menjadi /js </li>
-  <li>Membuat web http://naik.gunung.semerut04.pw </li>
-  <li>Membuat password</li>
-  <li>Melakukan redirect dari IP Probolinggo ke http://semerut07.pw </li>
-  <li>Mengarahkan semua request gambar yang memiliki substring “semeru” pada /var/www/penanjakan.semeruto4.pw/public/images menuju semeru.jpg.
-    
-</ol>
-
-## Jawaban
-<ol>
- <li>Blablabla</li>
- <li>Blablabla</li>
- <li>Blablabla</li>
- <li>Blablabla</li>
- <li>Blablabla</li>
- <li>Blablabla</li>
- <li>Blablabla</li>
- <li>Blablabla</li>
- <li>Blablabla</li>
- <li>Blablabla</li>
- <li>Blablabla</li>
- <li>Blablabla</li>
- <li>Blablabla</li>
- <li>Blablabla</li>
- <li>Blablabla</li>
- <li>Blablabla</li>
- <li>Blablabla</li>
-  
-</ol>
+  Mengarahkan URL yang mempunyai substring <b>semeru</b> ke alamat `http://penanjakan.semerut7.pw/public/images/semeru.jpg`
+  #### Penyelesaian
+  Mengatur <b>Override</b> pada file `/etc/apache2/sites-available/naik.gunung.semerut7.pw`.<br />
+  ```
+  AllowOverride All
+  ```
+  Membuat file <b>.htaccess</b> pada direktori `/var/www/penanjakan.semerut7.pw`.<br />
+  ```
+  RewriteEngine on
+  RewriteRule ^(.*)semeru(.*)$ public/images/semeru.jpg
+  ```
